@@ -21,6 +21,7 @@ def item(plant_dna):
     plant_dna = int(plant_dna)
     if plant_dna < 1 or utils.check_length(plant_dna) != 16:
         return jsonify({"error": "improper format"}), 400
+    dna_chunks = utils.split_dna(plant_dna)
     # data for the collection of images is stored in a csv file, loaded into a dataframe
     df = pd.read_csv(f"collection/collection_data.csv")
     # get the relevant slice from the dataframe, selecting from the token_id

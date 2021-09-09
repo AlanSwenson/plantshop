@@ -15,3 +15,11 @@ def check_length(n):
 def split_dna(dna):
     dna_chunks = wrap(str(dna), 2)
     return dna_chunks
+
+
+def create_attribute(name, dna_slice):
+    att = {
+        "trait_type": name,
+        "value": dna_slice,  # using the dictionary found in collection_func get the appropriate strings
+    }
+    return att

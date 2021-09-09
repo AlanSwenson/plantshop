@@ -18,8 +18,28 @@ def split_dna(dna):
 
 
 def create_attribute(name, dna_slice):
-    att = {
+    trait = ""
+    # 1st gene is genus
+    if name == "genus":
+        if int(dna_slice) % 10 == 1:
+            trait = "monstera"
+        else:
+            trait = "common house plant"
+    # 3rd gene is color
+    elif name == "color":
+        if int(dna_slice) % 100 == 1:
+            trait = "gold"
+        else:
+            trait = "typical"
+    # catchall for unimplemented genes
+    else:
+        trait = "undiscovered"
+    return format_trait(name, trait)
+
+
+def format_trait(name, trait):
+    attribute = {
         "trait_type": name,
-        "value": dna_slice,  # using the dictionary found in collection_func get the appropriate strings
+        "value": trait,  # using the dictionary found in collection_func get the appropriate strings
     }
-    return att
+    return attribute
